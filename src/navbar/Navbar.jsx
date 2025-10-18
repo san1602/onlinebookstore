@@ -21,7 +21,9 @@ const Navbar = () => {
                     </div>
                     <div className={st.rightside}>
                         <div>
-                            <IoMdContact /><span>Log in</span>
+                            <IoMdContact /><span>
+                                <Link to="/Login"
+                                    className={`${st.link} ${location.pathname === '/Login' ? st.active : ''}`}>Log in</Link></span>
                         </div>
                         <div>
                             <FaCartShopping />
