@@ -1,11 +1,27 @@
 import React from 'react'
 import st from '../Login/Login.module.css'
 import { useState } from 'react';
+import { VscEye } from "react-icons/vsc";
+import { VscEyeClosed } from "react-icons/vsc";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState({});
+    const [showpassword, setShowpassword] = useState(false);
+    const validation = () => {
+        const err = {};
+        if (!email.trim()) {
+            err.email ='Enter your Mailid'
+        } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+            err.email ='Invalid data'
+        }
+        if (!password.trim()) {
+            err.password ='Enter your password'
+        }
 
-
+        setError(err)
+        return Object.keys(err).length === 0
+    }
 
     return (
         <>
@@ -27,16 +43,27 @@ const Login = () => {
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
+                            
+                            {error.email ? <p className={st.errormsg}>{error.email}</p> : ''}
 
                             <label>Password</label>
-                            <input
-                                type="password"
-                                placeholder="Enter your password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                            <button type="submit">Login</button>
+                            <div className={st.pass}>
+                                <input
+                                    type={showpassword ? 'text' : 'password'}
+                                    placeholder="Enter your password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                                <span
+                                    className={st.eye}
+                                    onClick={() => setShowpassword(!showpassword)}
+                                >
+                                    {showpassword ? <VscEyeClosed /> : <VscEye />}
+                                </span>
+                            </div>
+                            {error.password ? <p className={st.errormsg}>{error.password}</p> : ''}
+                            <button type="submit" onClick={validation}>Login</button>
                         </form>
                     </div>
                 </div>

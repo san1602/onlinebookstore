@@ -106,18 +106,41 @@
     background-color: #d14848;
 }
 
+.pass {
+    position: relative;
+}
+
+.eye {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+
+.errormsg {
+    color: #e65757;
+    font-size: 12px;
+    transform: translatey(-20px);
+    text-align:left;
+    font-weight:300;
+    transition: opacity 0.3s ease;
+}
+
 @media (max-width: 480px) {
 
     .form h2 {
         font-size: 1.5rem;
     }
-    .signuptrigger p,span{
+
+    .signuptrigger p,
+    span {
         font-size: 12px;
     }
-    .loginform{
-        width:100%;
+
+    .loginform {
+        width: 100%;
     }
-    .form input{
-       width:85%;
+
+    .form input {
+        width: 85%;
     }
 }
