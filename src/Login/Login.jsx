@@ -3,6 +3,7 @@ import st from '../Login/Login.module.css'
 import { useState } from 'react';
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
+import { MdError } from "react-icons/md";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -44,7 +45,7 @@ const Login = () => {
                                 required
                             />
                             
-                            {error.email ? <p className={st.errormsg}>{error.email}</p> : ''}
+                            {error.email ? <p className={st.errormsg}><span><MdError/></span>{error.email}</p> : ''}
 
                             <label>Password</label>
                             <div className={st.pass}>
@@ -62,7 +63,7 @@ const Login = () => {
                                     {showpassword ? <VscEyeClosed /> : <VscEye />}
                                 </span>
                             </div>
-                            {error.password ? <p className={st.errormsg}>{error.password}</p> : ''}
+                            {error.password ? <p className={st.errormsg}><span><MdError/></span>{error.password}</p> : ''}
                             <button type="submit" onClick={validation}>Login</button>
                         </form>
                     </div>

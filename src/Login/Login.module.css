@@ -120,9 +120,13 @@
     color: #e65757;
     font-size: 12px;
     transform: translatey(-20px);
-    text-align:left;
     font-weight:300;
     transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+}
+.errormsg span{
+    padding-top: 1.5px;
 }
 
 @media (max-width: 480px) {
