@@ -60,7 +60,7 @@ const Login = () => {
                                     className={st.eye}
                                     onClick={() => setShowpassword(!showpassword)}
                                 >
-                                    {showpassword ? <VscEyeClosed /> : <VscEye />}
+                                    {showpassword ? < VscEye/> : <VscEyeClosed />}
                                 </span>
                             </div>
                             {error.password ? <p className={st.errormsg}><span><MdError/></span>{error.password}</p> : ''}
