@@ -129,7 +129,7 @@
     padding-top: 1.5px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
 
     .form h2 {
         font-size: 1.5rem;
