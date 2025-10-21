@@ -1,11 +1,13 @@
 import React from "react";
+import { useRef } from "react";
 import st from '../ComponentsCss/Home.module.css';
 import book1 from '../images/9781408855652.jpg'
 import book2 from '../images/9781787461482.jpg'
 import book3 from '../images/9789356295698.jpg'
 import book4 from '../images/9789358566147.jpg'
+import Contact from '../Components/Contact'
 
-const Home = () => {
+const Home = ({contactref}) => {
   const books = [
     {
       id: 1,
@@ -67,7 +69,11 @@ const Home = () => {
           ))}
         </div>
       </section>
+      <div ref={contactref}>
+        <Contact />
+      </div>
     </div>
+
   );
 };
 

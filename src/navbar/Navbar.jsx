@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import st from '../navbar/Navbar.module.css'
 import { IoMdContact } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
-const Navbar = () => {
+const Navbar = ({scrollto}) => {
     const location = useLocation();
     return (
         <>
@@ -17,7 +17,7 @@ const Navbar = () => {
                             className={`${st.link} ${location.pathname === '/about' ? st.active : ''}`}>
                             About</Link>
                         <p>Books</p>
-                        <p>Contact</p>
+                        <p onClick={scrollto}>Contact</p>
                     </div>
                     <div className={st.rightside}>
                         <div>
