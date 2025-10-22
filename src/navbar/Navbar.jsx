@@ -2,9 +2,20 @@ import React, { useRef } from 'react'
 import st from '../navbar/Navbar.module.css'
 import { IoMdContact } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const Navbar = ({scrollto}) => {
     const location = useLocation();
+    const navigate = useNavigate();
+     const handleContactClick = () => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        scrollto();
+      }, 300);
+    } else {
+      scrollto();
+    }
+  };
     return (
         <>
             <nav>
@@ -17,7 +28,7 @@ const Navbar = ({scrollto}) => {
                             className={`${st.link} ${location.pathname === '/about' ? st.active : ''}`}>
                             About</Link>
                         <p>Books</p>
-                        <p onClick={scrollto}>Contact</p>
+                        <p onClick={handleContactClick}>Contact</p>
                     </div>
                     <div className={st.rightside}>
                         <div>

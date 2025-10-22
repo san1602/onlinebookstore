@@ -7,7 +7,7 @@ import book3 from '../images/9789356295698.jpg'
 import book4 from '../images/9789358566147.jpg'
 import Contact from '../Components/Contact'
 
-const Home = ({contactref}) => {
+const Home = () => {
   const books = [
     {
       id: 1,
@@ -36,7 +36,7 @@ const Home = ({contactref}) => {
   ];
   return (
     <div className={st.homepage}>
-      <section className={st.firstpage}>
+      <div className={st.firstpage}>
         <div className={st.textinfirstpage}>
           <h1>Discover Your Next Favorite Book</h1>
           <p>
@@ -54,9 +54,9 @@ const Home = ({contactref}) => {
             alt="Books"
           />
         </div>
-      </section>
+      </div>
 
-      <section className={st.featured}>
+      <div className={st.featured}>
         <h2>Featured Books</h2>
         <div className={st.bookGrid}>
           {books.map((book) => (
@@ -68,9 +68,6 @@ const Home = ({contactref}) => {
             </div>
           ))}
         </div>
-      </section>
-      <div ref={contactref}>
-        <Contact />
       </div>
     </div>
 
